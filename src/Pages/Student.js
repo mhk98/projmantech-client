@@ -3,7 +3,7 @@ import React from "react";
 const Student = ({ student, handleDelete }) => {
 
     // Data and function destructure from students component
-    
+
   const { name, sub, roll, birth } = student;
   console.log(Student);
   return (
@@ -19,4 +19,4 @@ const Student = ({ student, handleDelete }) => {
   );
 };
 
-export default Student;
+export default Student

@@ -26,7 +26,7 @@ const AddStudent = () => {
         .then(res => res.json())
         .then(data =>{
             if(data){
-                toast('Thank you for successfully add your profile')
+                toast('Thank you for successfully add student information')
                 event.target.reset()
             }
         })
@@ -61,14 +61,14 @@ const AddStudent = () => {
                     </label>
                     <input type="text" name='roll' placeholder=" " class="input input-bordered w-full max-w-xs" />
             </div>
-            <div class="form-control w-full max-w-xs">
+            <div class="form-control w-full max-w-xs mb-4">
                     <label class="label">
                         <span class="label-text">Date of birth</span>
                     </label>
                     <input type="text" name='birth' placeholder=" " class="input input-bordered w-full max-w-xs" />
             </div>
 
-        <input className='btn bg-primary mt-4 border-0' type="submit" value="Submit" class="btn" />
+        <input className='btn bg-primary border-0' type="submit" value="Submit" class="btn" />
            
 
 
