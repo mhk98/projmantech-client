@@ -2,28 +2,27 @@ import useStudents from "../hooks/useStudents";
 import Student from "./Student";
 
 const Students = () => {
+  // Data collect from useStudents component
 
-// Data collect from useStudents component
+  const [students, setStudents] = useStudents();
 
-const [students, setStudents] = useStudents()
+  // Data remove from UI using delete method
 
-// Data remove from UI using delete method 
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure?");
 
-const handleDelete = id =>{
-    const proceed = window.confirm('Are you sure?');
-
-    if (proceed){
-        const url = `http://localhost:5000/student/${id}`
-        fetch(url, {
-            method:'DELETE'
-        })
-        .then(res =>res.json())
-        .then(data =>{
-            const remaining = students.filter(student => student._id !==id)
-            setStudents(remaining)
-        })
+    if (proceed) {
+      const url = `http://localhost:5000/student/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const remaining = students.filter((student) => student._id !== id);
+          setStudents(remaining);
+        });
     }
-}
+  };
   return (
     <div className="px-48">
       <table class="table w-full my-16">
@@ -41,7 +40,11 @@ const handleDelete = id =>{
         </thead>
         <tbody>
           {students.map((student) => (
-            <Student key={student._id} student={student} handleDelete={handleDelete}></Student>
+            <Student
+              key={student._id}
+              student={student}
+              handleDelete={handleDelete}
+            ></Student>
           ))}
         </tbody>
       </table>
@@ -49,4 +52,4 @@ const handleDelete = id =>{
   );
 };
 
-export default Students;
+export default Students

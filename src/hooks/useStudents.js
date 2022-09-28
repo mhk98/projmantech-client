@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-const useStudents = () =>{
+const useStudents = () => {
+  //Context API
 
-    //Context API
-    
-    const [students, setStudents] =useState([]);
+  const [students, setStudents] = useState([]);
 
-    useEffect( () =>{
-        fetch('http://localhost:5000/student')
-        .then(res=>res.json())
-        .then(data =>setStudents(data))
-    }, [students])
+  useEffect(() => {
+    fetch("http://localhost:5000/student")
+      .then((res) => res.json())
+      .then((data) => setStudents(data));
+  }, [students]);
 
-    return [students, setStudents]
-}
+  return [students, setStudents];
+};
 
-export default useStudents
+export default useStudents;
