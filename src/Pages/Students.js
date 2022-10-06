@@ -48,8 +48,10 @@ const Students = () => {
           ))}
         </tbody>
       </table>
+
+      <h3>Hello world</h3>
     </div>
   );
 };
 
-export default Students
+export default Students;
